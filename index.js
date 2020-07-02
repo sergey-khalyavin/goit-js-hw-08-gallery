@@ -54,12 +54,14 @@ function onOpenModal(event) {
   modalImageRef.setAttribute('data-index', `${imageTag.dataset.index}`);
   openModalRef.classList.add('is-open');
   window.addEventListener('keydown', onPressEscape);
+  window.addEventListener('keydown', onTurnImg); // eslint-disable-line
 }
 
 function onCloseModal() {
   openModalRef.classList.remove('is-open');
   modalImageRef.src = '';
   window.removeEventListener('keydown', onPressEscape);
+  window.removeEventListener('keydown', onTurnImg); // eslint-disable-line
 }
 
 function onOverlayClick() {
@@ -82,5 +84,3 @@ function onTurnImg(event) {
 listRef.addEventListener('click', onOpenModal);
 closeModalBtnRef.addEventListener('click', onCloseModal);
 openModalRef.addEventListener('click', onOverlayClick);
-
-window.addEventListener('keydown', onTurnImg);
